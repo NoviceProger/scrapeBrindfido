@@ -127,10 +127,10 @@ for url_item in urlldict:
 				policy2 = item_policy[1].text.strip()
 				policy3 = item_policy[2].text.strip()
 			else:
-				policy1 = ' '
-				policy2 = ' '
-				policy3 = ' '
-				print(item_text)
+				policy1 = 'None'
+				policy2 = 'None'
+				policy3 = 'None'
+				# print(item_text)
 			item_location = item.find('div', class_='propertyTile__locationRow').find('a',
 																			class_='propertyTile__location').text.strip()
 			location = str(item_location).split(',')
@@ -169,7 +169,7 @@ for url_item in urlldict:
 	# 		k = 5
 
 	# 6 запис у файл JSON
-	with open(f"{url_item['namefile']}.json", 'w') as file:
+	with open(f"{url_item['namefile']}.json", 'w', encoding='utf-8') as file:
 		json.dump(result, file, indent=4, ensure_ascii=False)
 
 web.close()
